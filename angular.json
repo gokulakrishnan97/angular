@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "course"
+    }
+  },
+  "defaultProject": "course",
+  "cli": {
+    "analytics": false
+  }
 }

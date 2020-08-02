@@ -1,0 +1,32 @@
+<div>
+  <form class="form-group" #f= "ngForm" name="courseForm" (ngSubmit)="isSubmitted(f)">
+    <div class="course-name">
+      <label for="courseName"> <strong> Course Name </strong> </label><br>
+      <input name="courseName" ngModel #courseName= "ngModel" type="text" id="courseName" class="form-control" (change)="changeValue(courseName)">
+    </div>
+    <div *ngIf="courseName.touched && !courseName.dirty"class="alert alert-danger">
+      Please provide the course name
+    </div>
+    <div *ngIf="courseName.touched && courseName.dirty && courseName.control.value.length <= 5"class="alert alert-danger">
+      course name must have minimum 5 characters
+    </div>
+    <div class="category">
+      <label for="category"> <strong> Category </strong> </label><br>
+      <select ngModel #category="ngModel" name="category" id="category" class="form-control">
+        <option value=""></option>
+        <option *ngFor = "let category of categories" [value]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+    </div>
+    <div *ngIf="category.control.touched && !category.control.dirty" class="alert alert-danger">
+      Please provide a category
+    </div>
+    <div>
+      {{ f.value | json }}
+    </div>
+    <div>
+      <button class="btn btn-primary"> Create </button>
+    </div>
+  </form>
+</div>
