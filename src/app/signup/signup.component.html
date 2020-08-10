@@ -1,0 +1,17 @@
+<div>
+  <form class="form-group"  [formGroup] = "form">
+    <div>
+      <label for="username">Username</label>
+      <input formControlName = "username" type="text" id="username" class="form-control"/>
+      <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+        <div *ngIf="username.errors.required">Username is required</div>
+        <div *ngIf="username.errors.canContainSpace">Username cannot contain space</div>
+      </div>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="text" id="password" class="form-control"/>
+    </div>
+    <button class="btn btn-primary">Sign in</button>
+  </form>
+</div>
