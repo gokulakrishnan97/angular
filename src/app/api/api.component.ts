@@ -16,6 +16,8 @@ export class ApiComponent implements OnInit {
     this.postService.getPosts()
       .subscribe( ( response ) => {
         this.posts = response;
+      }, error => {
+        alert("An unexpected error occured");
       })
   }
 
@@ -28,6 +30,8 @@ export class ApiComponent implements OnInit {
     //this.http.post(this.url, body)
       .subscribe( (res) => {
         this.posts.splice(0,0,res)
+      }, error => {
+        alert("An unexpected error occured");
       })
   }
 
