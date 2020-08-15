@@ -10,6 +10,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ApiComponent } from './api/api.component';
 import { PostsService } from './services/posts.service';
+import { GitFollowersService } from './services/git-followers.service';
+import { GitprofileInfoComponent } from './gitprofile-info/gitprofile-info.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { PostsService } from './services/posts.service';
     CourseFormComponent,
     SignupComponent,
     ResetPasswordComponent,
-    ApiComponent
+    ApiComponent,
+    GitprofileInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { PostsService } from './services/posts.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [PostsService],
+  providers: [PostsService, GitFollowersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
